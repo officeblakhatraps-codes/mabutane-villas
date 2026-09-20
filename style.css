@@ -1,0 +1,1330 @@
+/* =========================================
+   MABUTANE VILLAS
+   Main Stylesheet
+========================================= */
+
+:root {
+    --background: #f5f3ee;
+    --surface: #eeece5;
+    --dark: #1c211d;
+    --dark-soft: #30352f;
+    --text: #3d413b;
+    --muted: #777a72;
+    --line: #d8d5cd;
+    --white: #ffffff;
+    --accent: #a98c62;
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+
+    --container: 1240px;
+    --radius: 2px;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--sans);
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+.container {
+    width: min(100% - 48px, var(--container));
+    margin-inline: auto;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+    margin-bottom: 65px;
+}
+
+.section-heading > p {
+    max-width: 390px;
+    color: var(--muted);
+}
+
+.section-heading.centered {
+    display: block;
+    text-align: center;
+}
+
+.section-heading.centered h2 {
+    max-width: 650px;
+    margin-inline: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.1;
+}
+
+h2 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 70px);
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 0 27px;
+    border: 1px solid transparent;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-light {
+    background: var(--white);
+    color: var(--dark);
+}
+
+.button-outline {
+    border-color: rgba(255, 255, 255, 0.65);
+    color: var(--white);
+}
+
+.button-outline:hover {
+    background: var(--white);
+    color: var(--dark);
+}
+
+.button-dark {
+    background: var(--dark);
+    color: var(--white);
+}
+
+.button-dark:hover {
+    background: #323931;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    color: var(--white);
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+    background: rgba(245, 243, 238, 0.97);
+    color: var(--dark);
+    box-shadow: 0 1px 0 var(--line);
+    backdrop-filter: blur(12px);
+}
+
+.nav-container {
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo,
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: inherit;
+}
+
+.logo img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    display: block;
+}
+
+.logo span {
+    font-weight: 500;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: inherit;
+}
+
+.footer-logo img {
+    width: 92px;
+    height: 92px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-logo span {
+    font-weight: 500;
+}
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.desktop-nav > a:not(.nav-button) {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.nav-button {
+    padding: 13px 20px;
+    border: 1px solid currentColor;
+    font-size: 12px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: currentColor;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 27px;
+    height: 1px;
+    background: currentColor;
+    margin: 7px 0;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("images/hero.jpg");
+        center/
+        cover
+        no-repeat;
+    transform: scale(1.02);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(14, 19, 15, 0.72) 0%,
+            rgba(14, 19, 15, 0.42) 48%,
+            rgba(14, 19, 15, 0.20) 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.hero-location {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    max-width: 850px;
+    font-family: var(--serif);
+    font-size: clamp(58px, 8vw, 105px);
+    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+}
+
+.hero h1 span {
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 570px;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 35px;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 15px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.text-link span {
+    font-size: 17px;
+}
+
+
+/* =========================================
+   IMAGE SECTION
+========================================= */
+
+.about-image-section {
+    padding: 24px 0 0;
+}
+
+.large-image {
+    height: 650px;
+    overflow: hidden;
+}
+
+.large-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about {
+    background: var(--background);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 100px;
+}
+
+.section-label {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 11px;
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about-content h2 {
+    margin-bottom: 22px;
+}
+
+.about-content h3 {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 30px;
+}
+
+.about-content > p:not(.eyebrow) {
+    color: var(--muted);
+    max-width: 700px;
+    margin-bottom: 18px;
+}
+
+.about-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 55px;
+    border-top: 1px solid var(--line);
+}
+
+.about-numbers div {
+    padding-top: 22px;
+}
+
+.about-numbers strong {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 7px;
+}
+
+.about-numbers span {
+    font-family: var(--serif);
+    font-size: 23px;
+    color: var(--dark);
+}
+
+
+/* =========================================
+   VILLAS
+========================================= */
+
+.villas {
+    background: var(--surface);
+}
+
+.villa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.villa-card {
+    background: var(--background);
+}
+
+.villa-image {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.villa-image img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.villa-card:hover .villa-image img {
+    transform: scale(1.04);
+}
+
+.guest-badge {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--dark);
+    font-size: 11px;
+}
+
+.villa-content {
+    padding: 31px;
+}
+
+.villa-content h3 {
+    font-family: var(--serif);
+    color: var(--dark);
+    font-size: 31px;
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.villa-content > p {
+    min-height: 78px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 25px 0;
+}
+
+.features span {
+    border: 1px solid var(--line);
+    padding: 7px 9px;
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.price {
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+.price span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 5px;
+}
+
+.price strong {
+    color: var(--dark);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   AMENITIES
+========================================= */
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+
+.amenity {
+    min-height: 220px;
+    padding: 30px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.amenity-number {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 55px;
+}
+
+.amenity h3 {
+    font-family: var(--serif);
+    font-size: 25px;
+    color: var(--dark);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.amenity p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery {
+    background: var(--surface);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 280px;
+    gap: 12px;
+}
+
+.gallery-item {
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.gallery-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* =========================================
+   WHY
+========================================= */
+
+.why {
+    background: var(--background);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.why-grid article {
+    padding-top: 25px;
+    border-top: 1px solid var(--line);
+}
+
+.why-grid article > span {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 55px;
+}
+
+.why-grid h3 {
+    font-family: var(--serif);
+    color: var(--dark);
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: 13px;
+}
+
+.why-grid p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   LOCATION
+========================================= */
+
+.location {
+    background: var(--surface);
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.location-map {
+    min-height: 580px;
+}
+
+.location-map iframe {
+    width: 100%;
+    height: 580px;
+    border: 0;
+    filter: grayscale(100%);
+}
+
+.location-content h2 {
+    margin-bottom: 35px;
+}
+
+.location-content > p:not(.eyebrow) {
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 25px;
+}
+
+.location-details {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 25px 0;
+    margin-bottom: 25px;
+}
+
+.location-details h3 {
+    font-family: var(--serif);
+    font-size: 25px;
+    color: var(--dark);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.location-details p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   BOOKING
+========================================= */
+
+.booking {
+    background: var(--dark);
+    color: var(--white);
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 100px;
+}
+
+.booking-intro h2 {
+    color: var(--white);
+    margin-bottom: 28px;
+}
+
+.booking-intro > p:not(.eyebrow) {
+    max-width: 450px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.contact-highlight {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-highlight a {
+    display: block;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.contact-highlight a:first-child {
+    font-family: var(--serif);
+    font-size: 25px;
+}
+
+.contact-highlight a:last-child {
+    font-size: 12px;
+}
+
+.booking-address {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    max-width: 360px;
+    margin-top: 25px;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    padding: 14px;
+    outline: none;
+    border-radius: 0;
+}
+
+.form-group select option {
+    color: var(--dark);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.32);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    border: 0;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.form-status {
+    min-height: 20px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+    background: var(--background);
+}
+
+.contact-inner {
+    text-align: center;
+}
+
+.contact-inner h2 {
+    margin-bottom: 65px;
+}
+
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.contact-links a {
+    padding: 30px 25px;
+    border-right: 1px solid var(--line);
+    text-align: left;
+    transition: background 0.25s ease;
+}
+
+.contact-links a:last-child {
+    border-right: 0;
+}
+
+.contact-links a:hover {
+    background: var(--surface);
+}
+
+.contact-links span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    margin-bottom: 10px;
+}
+
+.contact-links strong {
+    color: var(--dark);
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    background: var(--dark);
+    color: var(--white);
+    padding-top: 75px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+    padding-bottom: 70px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.footer-grid > div:first-child p {
+    max-width: 400px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+
+.footer h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
+
+.footer-grid > div:not(:first-child) a {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.footer-grid > div:last-child p {
+    max-width: 260px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 10px;
+}
+
+
+/* =========================================
+   WHATSAPP
+========================================= */
+
+.whatsapp-float {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.whatsapp-float i {
+    line-height: 1;
+}
+
+
+/* =========================================
+   REVEAL ANIMATION
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .desktop-nav {
+        gap: 16px;
+    }
+
+    .about-grid {
+        gap: 50px;
+    }
+
+    .villa-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .villa-card:last-child {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 12px);
+        margin-inline: auto;
+    }
+
+    .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .location-grid {
+        gap: 50px;
+    }
+
+    .booking-grid {
+        gap: 50px;
+    }
+
+    .contact-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-links a:nth-child(2) {
+        border-right: 0;
+    }
+
+    .contact-links a:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .container {
+        width: min(100% - 34px, var(--container));
+    }
+
+    .section {
+        padding: 85px 0;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-menu {
+        padding: 20px 17px 28px;
+        background: var(--background);
+        color: var(--dark);
+    }
+
+    .mobile-menu.open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-menu a {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 13px;
+    }
+
+    .mobile-book {
+        margin-top: 15px;
+        padding: 15px !important;
+        background: var(--dark);
+        color: white;
+        text-align: center;
+    }
+
+    .hero {
+        min-height: 800px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 13vw, 75px);
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .text-link {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .large-image {
+        height: 450px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .section-heading {
+        display: block;
+        margin-bottom: 45px;
+    }
+
+    .section-heading > p {
+        margin-top: 20px;
+    }
+
+    .villa-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .villa-card:last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    .villa-image {
+        height: 380px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 220px;
+    }
+
+    .gallery-large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-map,
+    .location-map iframe {
+        min-height: 400px;
+        height: 400px;
+    }
+
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px 30px;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .hero-content {
+        padding-top: 100px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        line-height: 1.7;
+    }
+
+    .large-image {
+        height: 320px;
+    }
+
+    .about-numbers {
+        gap: 10px;
+    }
+
+    .about-numbers span {
+        font-size: 18px;
+    }
+
+    .amenities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .amenity {
+        min-height: 180px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+    }
+
+    .gallery-large {
+        grid-column: auto;
+        grid-row: span 1;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-links a,
+    .contact-links a:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .contact-links a:last-child {
+        border-bottom: 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+    }
+@media (max-width: 768px) {
+
+    .logo img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+        gap: 8px;
+    }
+
+    .footer-logo img {
+        width: 38px;
+        height: 38px;
+    }
+    .website-credit {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    opacity: 0.55;
+    white-space: nowrap;
+}
+
+.website-credit a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.website-credit a:hover {
+    opacity: 1;
+}
+
+.credit-divider {
+    margin: 0 7px;
+    opacity: 0.5;
+}
+
+}
+}
