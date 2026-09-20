@@ -297,7 +297,7 @@ h2 {
     position: absolute;
     inset: 0;
     background-image: url("hero.jpg");
-        center/
+        center center /
         cover
         no-repeat;
     transform: scale(1.02);
