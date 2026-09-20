@@ -296,7 +296,7 @@ h2 {
 .hero-image {
     position: absolute;
     inset: 0;
-    background-image: url("images/hero.jpg");
+    background-image: url("hero.jpg");
         center/
         cover
         no-repeat;
